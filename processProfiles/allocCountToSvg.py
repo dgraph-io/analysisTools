@@ -10,6 +10,6 @@ for filename in os.listdir(cwd):
     if "heap" in filename and (filename.endswith(".prof") or filename.endswith(".out") or filename.endswith(".txt") or filename.endswith(".pprof"))   :
         # Use the go tool to convert the profile to an SVG image
         count += 1
-        os.system(f"go tool pprof -alloc_objects -svg '{os.path.join(cwd, filename)}' > '{os.path.join(cwd, filename + '.svg')}' ")
+        os.system(f"go tool pprof -alloc_objects -svg --lines '{os.path.join(cwd, filename)}' > '{os.path.join(cwd, filename + '.svg')}' ")
 
 print("Converted ", count, " files")
